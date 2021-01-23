@@ -25,7 +25,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.IBinder;
@@ -65,7 +64,7 @@ public class FPSInfoService extends Service {
         private Paint mOnlinePaint;
         private float mAscent;
         private int mFH;
-        private int mMaxWidth;
+        private int mMaxWidth = 0;
 
         private int mNeededWidth;
         private int mNeededHeight;
@@ -74,16 +73,14 @@ public class FPSInfoService extends Service {
 
         private Handler mCurFPSHandler = new Handler() {
             public void handleMessage(Message msg) {
-                if(msg.obj==null){
+                if(msg.obj == null || msg.what != 1) {
                     return;
                 }
-                if(msg.what==1){
-                    String msgData = (String) msg.obj;
-                    msgData = msgData.substring(0, Math.min(msgData.length(), 9));
-                    mFps = msgData;
-                    mDataAvail = true;
-                    updateDisplay();
-                }
+                String msgData = (String) msg.obj;
+                msgData = msgData.trim().split("\\s+")[1];
+                mFps = msgData + " FPS";
+                mDataAvail = true;
+                updateDisplay();
             }
         };
 
@@ -108,9 +105,6 @@ public class FPSInfoService extends Service {
             mAscent = mOnlinePaint.ascent();
             float descent = mOnlinePaint.descent();
             mFH = (int)(descent - mAscent + .5f);
-
-            final String maxWidthStr="fps: 60.1";
-            mMaxWidth = (int)mOnlinePaint.measureText(maxWidthStr);
 
             updateDisplay();
         }
@@ -161,6 +155,10 @@ public class FPSInfoService extends Service {
         void updateDisplay() {
             if (!mDataAvail) {
                 return;
+            }
+
+            if (mOnlinePaint != null) {
+                mMaxWidth = (int) mOnlinePaint.measureText(mFps);
             }
 
             int neededWidth = mPaddingLeft + mPaddingRight + mMaxWidth;

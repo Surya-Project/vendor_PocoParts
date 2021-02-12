@@ -69,4 +69,7 @@
     <!-- menu -->
     <string name="kcal_presets">@string/presets_dialog_title</string>
     <string name="kcal_reset">Reset</string>
+
+    <!-- Refresh Rate tile -->
+    <string name="refresh_rate_tile_title">Refresh Rate</string>
 </resources>

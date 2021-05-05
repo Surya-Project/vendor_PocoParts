@@ -119,5 +119,11 @@
         <service android:name="com.xiaomi.parts.SmartChargingService"
                 android:exported="false">
         </service>
+
+        <receiver android:name="com.xiaomi.parts.Startup" >
+            <intent-filter android:priority="100" >
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

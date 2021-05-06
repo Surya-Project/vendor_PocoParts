@@ -33,7 +33,6 @@ import android.util.Log;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
 import com.xiaomi.parts.speaker.ClearSpeakerActivity;
-import com.xiaomi.parts.preferences.VibratorStrengthPreference;
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
 import com.xiaomi.parts.preferences.SeekBarPreference;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
@@ -45,7 +44,7 @@ import com.xiaomi.parts.ModeSwitch.SmartChargingSwitch;
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "PocParts";
+    private static final String TAG = "PocoParts";
 
     public static final String CATEGORY_DISPLAY = "display";
     public static final String PREF_DEVICE_KCAL = "device_kcal";
@@ -63,23 +62,12 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String KEY_CHARGING_SWITCH = "smart_charging";
     public static final String KEY_RESET_STATS = "reset_stats";
 
-    public static final String KEY_VIBSTRENGTH = "vib_strength";
-
-    final static String PREF_TORCH_BRIGHTNESS = "torch_brightness";
-    public static final String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/platform/soc/c440000.qcom," +
-      "spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_0/max_brightness";
-
-    public static final String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/platform/soc/c440000.qcom," +
-      "spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d300/leds/led:torch_1/max_brightness"; 
-
     private Preference mKcal;
     private SecureSettingSwitchPreference mFastcharge;
     private SwitchPreference mSelinuxMode;
     private SwitchPreference mSelinuxPersistence;
     private Preference mClearSpeakerPref;
     private Preference mAmbientPref;
-    private CustomSeekBarPreference mTorchBrightness;
-    private VibratorStrengthPreference mVibratorStrength;
 
     private static Context mContext;
 
@@ -138,15 +126,6 @@ public class DeviceSettings extends PreferenceFragment implements
         .getSharedPreferences("selinux_pref", Context.MODE_PRIVATE)
         .contains(PREF_SELINUX_MODE));
 
-        mTorchBrightness = (CustomSeekBarPreference) findPreference(PREF_TORCH_BRIGHTNESS);
-        mTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH) &&
-                FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
-        mTorchBrightness.setOnPreferenceChangeListener(this);
-
-        mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
-        if (mVibratorStrength != null) {
-            mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
-
         mSmartChargingSwitch = (TwoStatePreference) findPreference(KEY_CHARGING_SWITCH);
         mSmartChargingSwitch.setChecked(prefs.getBoolean(KEY_CHARGING_SWITCH, false));
         mSmartChargingSwitch.setOnPreferenceChangeListener(new SmartChargingSwitch(getContext()));
@@ -158,8 +137,6 @@ public class DeviceSettings extends PreferenceFragment implements
 
         mSeekBarPreference = (SeekBarPreference) findPreference("seek_bar");
         mSeekBarPreference.setEnabled(mSmartChargingSwitch.isChecked());
-        }
-
     }
 
     @Override
@@ -186,11 +163,6 @@ public class DeviceSettings extends PreferenceFragment implements
                 } else {
                     this.getContext().stopService(fpsinfo);
                 }
-                break;
-
-            case PREF_TORCH_BRIGHTNESS:
-                FileUtils.setValue(TORCH_1_BRIGHTNESS_PATH, (int) value);
-                FileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, (int) value);
                 break;
 
             default:

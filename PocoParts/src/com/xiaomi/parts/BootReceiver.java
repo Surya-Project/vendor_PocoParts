@@ -30,7 +30,6 @@ import android.text.TextUtils;
 import com.xiaomi.parts.R;
 
 import com.xiaomi.parts.kcal.Utils;
-import com.xiaomi.parts.preferences.VibratorStrengthPreference;
 
 import java.io.IOException;
 import java.util.List;
@@ -126,13 +125,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
 
         FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
-        VibratorStrengthPreference.restore(context);
-        FileUtils.setValue(DeviceSettings.TORCH_1_BRIGHTNESS_PATH,
-                Settings.Secure.getInt(context.getContentResolver(),
-                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 150));
-        FileUtils.setValue(DeviceSettings.TORCH_2_BRIGHTNESS_PATH,
-                Settings.Secure.getInt(context.getContentResolver(),
-                        DeviceSettings.PREF_TORCH_BRIGHTNESS, 150));
     }
 
     private void showToast(String toastString, Context context) {

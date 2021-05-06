@@ -6,7 +6,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 PRODUCT_PACKAGES += \
     PocoParts \
-    XiaomiDoze
+    XiaomiDoze \
+    XiaomiDirac
 
 PRODUCT_COPY_FILES += \
     $(VENDOR_PATH)/PocoParts/privapp-permissions-parts.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-parts.xml
@@ -14,3 +15,9 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
    $(VENDOR_PATH)/overlay
+
+# Sepolicy
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+
+# Vendor properties
+-include $(VENDOR_PATH)/vendor_prop.mk

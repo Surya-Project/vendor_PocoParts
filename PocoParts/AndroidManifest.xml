@@ -114,6 +114,16 @@
                     android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
+        <service
+            android:name=".PocoPartsTile"
+            android:enabled="true"
+            android:icon="@drawable/ic_mi"
+            android:label="@string/advanced_settings"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
 
         <receiver android:name="com.xiaomi.parts.Startup" >
             <intent-filter android:priority="100" >

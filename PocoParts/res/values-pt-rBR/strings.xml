@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Asus-SDM660 Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+     <string name="advanced_settings">Poco Parts</string>
+     <string name="advanced_settings_summary">Personalizações específicas do dispositivo</string>
+
+    <string name="display_title">Tela</string>
+    <!-- KCal -->
+    <string name="device_kcal_title">Calibração de cores da tela</string>
+    <string name="kcal_enabled_summary">Calibrar exibição usando KCAL</string>
+    <string name="advanced_settings_kcal">Calibração de cores da tela</string>
+    <string name="cat_colormanagement">Configurações de cor</string>
+    <string name="cat_calibration">Calibração de tela</string>
+
+    <string name="kcal_enabled">On</string>
+    <string name="kcal_disabled">Off</string>
+    <string name="set_on_boot">Definido na inicialização</string>
+    <string name="color_red">Vermelho</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Azul</string>
+    <string name="color_minimum">Mínimo</string>
+    <string name="saturation">Saturação</string>
+    <string name="value">Valor</string>
+    <string name="contrast">Contraste</string>
+    <string name="hue">Hue</string>
+    <string name="grayscale">Tela em tons de cinza</string>
+    <string name="presets_dialog_title">Selecione uma predefinição</string>
+    <!-- menu -->
+    <string name="kcal_presets" translatable="false">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Redefinir</string>
+
+    <!-- FPS Info -->
+    <string name="fps_info_title">Exibir FPS</string>
+    <string name="fps_info_summary">Mostrar FPS atualizado por segundo</string>
+
+    <!-- Selinux Switch -->
+    <string name="selinux_category">SELinux</string>
+    <string name="selinux_explanation_summary">SELinux é um conjunto de modificações do kernel e ferramentas de espaço do usuário. Alterar os modos pode causar efeitos indesejados. Use por sua conta e risco.</string>
+    <string name="selinux_mode_title">Modo do SELinux</string>
+    <string name="selinux_permissive_summary">Permissive</string>
+    <string name="selinux_enforcing_summary">Enforcing</string>
+    <string name="selinux_persistence_title">Persistir nas reinicializações</string>
+    <string name="selinux_persistence_summary">Restaure o modo sepolicy acima definido em cada inicialização</string>
+    <string name="selinux_permissive_toast_title">Selinux definido como permissive!</string>
+    <string name="selinux_enforcing_toast_title">Selinux definido como enforcing!</string>
+
+    <!-- Speaker -->
+    <string name="speaker_category">Alto-Falante</string>
+    
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Limpar alto-falante</string>
+    <string name="clear_speaker_summary">Reproduza um áudio de 30 segundos para limpar o alto-falante</string>
+    <string name="clear_speaker_description">Execute este recurso uma ou duas vezes se descobrir que o alto-falante está ligeiramente bloqueado por poeira. Defina o volume da mídia para o máximo. \ N \ nSe o alto-falto-falante estiver fortemente bloqueado, execute este recurso 2 a 5 vezes enquanto agita seu dispositivo com o alto-falante voltado para baixo.</string>
+
+    

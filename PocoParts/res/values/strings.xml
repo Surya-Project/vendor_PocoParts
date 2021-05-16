@@ -116,4 +116,7 @@
     <!-- Ambient Display -->
     <string name="ambient_display_xiaomi">Poco Doze</string>
     <string name="advanced_doze_summary">Ambient display</string>
+
+    <!-- Dirac settings -->
+    <string name="dirac_summary">Optimize audio quality</string>
 </resources>

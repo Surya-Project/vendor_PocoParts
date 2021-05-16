@@ -86,6 +86,8 @@
         android:title="@string/speaker_category">
 
         <Preference
+            android:summary="@string/dirac_summary"
+            android:icon="@drawable/ic_dirac"
             android:key="dirac_enabled"
             android:title="Poco Dirac">
             <intent

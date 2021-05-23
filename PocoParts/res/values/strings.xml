@@ -119,4 +119,8 @@
 
     <!-- Dirac settings -->
     <string name="dirac_summary">Optimize audio quality</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Thermal Profiles and Game Mode</string>
+    <string name="thermal_summary">Adjust per-app thermal and touchscreen profiles for optimum performance</string>
 </resources>

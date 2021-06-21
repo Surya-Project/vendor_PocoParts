@@ -24,6 +24,7 @@ import android.util.Log;
 import android.provider.Settings;
 
 import org.lineageos.settings.utils.FileUtils;
+import org.lineageos.settings.haptic.HapticUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 
@@ -61,5 +62,6 @@ public class BootCompletedReceiver extends BroadcastReceiver implements Controll
         }
         ThermalUtils.startService(context);
         TouchSamplingUtils.restoreSamplingValue(context);
+        HapticUtils.restoreLevel(context);
     }
 }

@@ -4,11 +4,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.preference_preference \
-    SettingsLib \
-    airbnb-lottie
-
-LOCAL_JAVA_LIBRARIES := \
-    airbnb-lottie
+    SettingsLib
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_PACKAGE_NAME := PocoParts

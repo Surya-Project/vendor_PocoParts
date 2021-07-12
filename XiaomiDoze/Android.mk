@@ -14,12 +14,7 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_USE_AAPT2 := true
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
-    androidx.preference_preference \
-    VendorSupport-preference \
-    airbnb-lottie
-
-LOCAL_STATIC_JAVA_LIBRARIES := \
-    airbnb-lottie
+    androidx.preference_preference
 
 LOCAL_RESOURCE_DIR := \
     $(LOCAL_PATH)/res

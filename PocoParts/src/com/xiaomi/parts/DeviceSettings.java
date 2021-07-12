@@ -28,6 +28,7 @@ import androidx.preference.PreferenceCategory;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.preference.SwitchPreference;
+import androidx.preference.TwoStatePreference;
 import android.util.Log;
 
 import com.xiaomi.parts.kcal.KCalSettingsActivity;
@@ -48,12 +49,15 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
 
+    public static final String KEY_USB2_SWITCH = "usb2_fast_charge";
+
     private Preference mKcal;
     private SecureSettingSwitchPreference mFastcharge;
     private Preference mClearSpeakerPref;
     private Preference mAmbientPref;
 
     private static Context mContext;
+    private static TwoStatePreference mUSB2FastChargeModeSwitch;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -79,6 +83,12 @@ public class DeviceSettings extends PreferenceFragment implements
             startActivity(intent);
             return true;
         });
+
+        // USB2 Force FastCharge Toggle
+        mUSB2FastChargeModeSwitch = (TwoStatePreference) findPreference(KEY_USB2_SWITCH);
+        mUSB2FastChargeModeSwitch.setEnabled(USB2FastChargeModeSwitch.isSupported());
+        mUSB2FastChargeModeSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_USB2_SWITCH, false));
+        mUSB2FastChargeModeSwitch.setOnPreferenceChangeListener(new USB2FastChargeModeSwitch());
 
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));

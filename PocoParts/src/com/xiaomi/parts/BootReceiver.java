@@ -23,12 +23,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.content.SharedPreferences;
+import androidx.preference.PreferenceManager;
 import android.os.SELinux;
 import android.util.Log;
 import android.widget.Toast;
 import android.text.TextUtils;
 
 import com.xiaomi.parts.kcal.Utils;
+import com.xiaomi.parts.R;
 
 import java.io.IOException;
 import java.util.List;
@@ -36,6 +38,8 @@ import java.util.List;
 public class BootReceiver extends BroadcastReceiver implements Utils {
 
     public void onReceive(Context context, Intent intent) {
+        boolean enabled = false;
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         if (Settings.Secure.getInt(context.getContentResolver(), PREF_ENABLED, 0) == 1) {
             FileUtils.setValue(KCAL_ENABLE, Settings.Secure.getInt(context.getContentResolver(),
                     PREF_ENABLED, 0));
@@ -61,7 +65,24 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
             FileUtils.setValue(KCAL_HUE, Settings.Secure.getInt(context.getContentResolver(),
                     PREF_HUE, HUE_DEFAULT));
         }
-
+        enabled = sharedPrefs.getBoolean(DeviceSettings.KEY_USB2_SWITCH, false);
+        if (enabled) {
+        restore(USB2FastChargeModeSwitch.getFile(), enabled);
+        }
+    }
+    private void restore(String file, boolean enabled) {
+        if (file == null) {
+            return;
+        }
+        if (enabled) {
+            FileUtils.writeValue(file, "1");
+        }
+    }
+    private void restore(String file, String value) {
+        if (file == null) {
+            return;
+        }
+        FileUtils.writeValue(file, value);
     }
 
     private void showToast(String toastString, Context context) {

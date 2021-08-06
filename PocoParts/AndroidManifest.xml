@@ -45,7 +45,7 @@
         <activity
             android:name=".DeviceSettingsActivity"
             android:exported="false"
-            android:icon="@drawable/ic_mi"
+            android:icon="@drawable/ic_poco"
             android:label="@string/advanced_settings"
             android:launchMode="singleTask">
             <intent-filter>
@@ -57,9 +57,6 @@
             <meta-data
                 android:name="com.android.settings.dismiss"
                 android:value="9,13,30" />
-            <meta-data
-                android:name="com.android.settings.bg.hint"
-                android:resource="@color/homepage_parts_background" />
             <meta-data
                 android:name="com.android.settings.category"
                 android:value="com.android.settings.category.ia.system" />
@@ -91,17 +88,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".StartAction" />
-        <service
-            android:name="com.xiaomi.parts.LogTile"
-            android:icon="@drawable/ic_qs_log"
-            android:label="@string/quick_settings_log_tile_label"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
         <service
             android:name="com.xiaomi.parts.FPSInfoService"
             android:exported="false">
@@ -119,7 +105,7 @@
         <service
             android:name=".PocoPartsTile"
             android:enabled="true"
-            android:icon="@drawable/ic_mi"
+            android:icon="@drawable/ic_poco"
             android:label="@string/advanced_settings"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
@@ -127,10 +113,5 @@
             </intent-filter>
         </service>
 
-        <receiver android:name="com.xiaomi.parts.Startup" >
-            <intent-filter android:priority="100" >
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>

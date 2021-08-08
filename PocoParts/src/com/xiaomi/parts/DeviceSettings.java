@@ -31,7 +31,6 @@ import androidx.preference.SwitchPreference;
 import androidx.preference.TwoStatePreference;
 import android.util.Log;
 
-import com.xiaomi.parts.kcal.KCalSettingsActivity;
 import com.xiaomi.parts.speaker.ClearSpeakerActivity;
 import com.xiaomi.parts.preferences.CustomSeekBarPreference;
 import com.xiaomi.parts.preferences.SecureSettingListPreference;
@@ -42,16 +41,12 @@ public class DeviceSettings extends PreferenceFragment implements
 
     private static final String TAG = "PocoParts";
 
-    public static final String CATEGORY_DISPLAY = "display";
-    public static final String PREF_DEVICE_KCAL = "device_kcal";
-
     public static final String PREF_KEY_FPS_INFO = "fps_info";
 
     private static final String PREF_CLEAR_SPEAKER = "clear_speaker_settings";
 
     public static final String KEY_USB2_SWITCH = "usb2_fast_charge";
 
-    private Preference mKcal;
     private SecureSettingSwitchPreference mFastcharge;
     private Preference mClearSpeakerPref;
     private Preference mAmbientPref;
@@ -66,16 +61,6 @@ public class DeviceSettings extends PreferenceFragment implements
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         String device = FileUtils.getStringProp("ro.build.product", "unknown");
-
-        PreferenceCategory displayCategory = (PreferenceCategory) findPreference(CATEGORY_DISPLAY);
-
-        mKcal = findPreference(PREF_DEVICE_KCAL);
-
-        mKcal.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
-            startActivity(intent);
-            return true;
-        });
 
         mClearSpeakerPref = (Preference) findPreference(PREF_CLEAR_SPEAKER);
         mClearSpeakerPref.setOnPreferenceClickListener(preference -> {

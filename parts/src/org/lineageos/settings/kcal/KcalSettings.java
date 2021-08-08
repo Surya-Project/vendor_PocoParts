@@ -1,56 +1,48 @@
-/*
- * Copyright (C) 2018 The Asus-SDM660 Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
- */
-
-package com.xiaomi.parts.kcal;
+package org.lineageos.settings.kcal;
 
 import android.os.Bundle;
 import android.provider.Settings;
+import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.Preference;
+import androidx.viewpager.widget.ViewPager;
 
-import com.xiaomi.parts.R;
-import com.xiaomi.parts.preferences.CustomSeekBarPreference;
-import com.xiaomi.parts.preferences.SecureSettingSwitchPreference;
+import org.lineageos.settings.R;
+import org.lineageos.settings.preferences.SecureSettingSeekBarPreference;
+import org.lineageos.settings.preferences.SecureSettingSwitchPreference;
+import org.lineageos.settings.Controller;
 
-public class KCalSettings extends PreferenceFragment implements
-        Preference.OnPreferenceChangeListener, Utils {
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+
+public class KcalSettings extends PreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Controller {
+
+    ViewPager viewPager;
+    LinearLayout DotsKcal;
+    private int dotscount;
+    private ImageView[] dots;
 
     private final FileUtils mFileUtils = new FileUtils();
 
     private SecureSettingSwitchPreference mEnabled;
     private SecureSettingSwitchPreference mSetOnBoot;
-    private CustomSeekBarPreference mRed;
-    private CustomSeekBarPreference mGreen;
-    private CustomSeekBarPreference mBlue;
-    private CustomSeekBarPreference mSaturation;
-    private CustomSeekBarPreference mValue;
-    private CustomSeekBarPreference mContrast;
-    private CustomSeekBarPreference mHue;
-    private CustomSeekBarPreference mMin;
+    private SecureSettingSeekBarPreference mRed;
+    private SecureSettingSeekBarPreference mGreen;
+    private SecureSettingSeekBarPreference mBlue;
+    private SecureSettingSeekBarPreference mSaturation;
+    private SecureSettingSeekBarPreference mValue;
+    private SecureSettingSeekBarPreference mContrast;
+    private SecureSettingSeekBarPreference mHue;
+    private SecureSettingSeekBarPreference mMin;
     private SecureSettingSwitchPreference mGrayscale;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-    }
-
-    @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.preferences_kcal, rootKey);
+        setPreferencesFromResource(R.xml.kcal_preferences, rootKey);
 
         boolean enabled = Settings.Secure.getInt(getContext().getContentResolver(), PREF_ENABLED,
                 0) == 1;
@@ -62,34 +54,88 @@ public class KCalSettings extends PreferenceFragment implements
         mSetOnBoot = (SecureSettingSwitchPreference) findPreference(PREF_SETONBOOT);
         mSetOnBoot.setOnPreferenceChangeListener(this);
 
-        mMin = (CustomSeekBarPreference) findPreference(PREF_MINIMUM);
+        mMin = (SecureSettingSeekBarPreference) findPreference(PREF_MINIMUM);
         mMin.setOnPreferenceChangeListener(this);
 
-        mRed = (CustomSeekBarPreference) findPreference(PREF_RED);
+        mRed = (SecureSettingSeekBarPreference) findPreference(PREF_RED);
         mRed.setOnPreferenceChangeListener(this);
 
-        mGreen = (CustomSeekBarPreference) findPreference(PREF_GREEN);
+        mGreen = (SecureSettingSeekBarPreference) findPreference(PREF_GREEN);
         mGreen.setOnPreferenceChangeListener(this);
 
-        mBlue = (CustomSeekBarPreference) findPreference(PREF_BLUE);
+        mBlue = (SecureSettingSeekBarPreference) findPreference(PREF_BLUE);
         mBlue.setOnPreferenceChangeListener(this);
 
-        mSaturation = (CustomSeekBarPreference) findPreference(PREF_SATURATION);
-        mSaturation.setEnabled(!(Settings.Secure.getInt(getContext().getContentResolver(),
-                PREF_GRAYSCALE, 0) == 1) && enabled);
+        mSaturation = (SecureSettingSeekBarPreference) findPreference(PREF_SATURATION);
+        mSaturation.setEnabled((Settings.Secure.getInt(getContext().getContentResolver(),
+                PREF_GRAYSCALE, 0) == 0));
         mSaturation.setOnPreferenceChangeListener(this);
 
-        mValue = (CustomSeekBarPreference) findPreference(PREF_VALUE);
+        mValue = (SecureSettingSeekBarPreference) findPreference(PREF_VALUE);
         mValue.setOnPreferenceChangeListener(this);
 
-        mContrast = (CustomSeekBarPreference) findPreference(PREF_CONTRAST);
+        mContrast = (SecureSettingSeekBarPreference) findPreference(PREF_CONTRAST);
         mContrast.setOnPreferenceChangeListener(this);
 
-        mHue = (CustomSeekBarPreference) findPreference(PREF_HUE);
+        mHue = (SecureSettingSeekBarPreference) findPreference(PREF_HUE);
         mHue.setOnPreferenceChangeListener(this);
 
         mGrayscale = (SecureSettingSwitchPreference) findPreference(PREF_GRAYSCALE);
         mGrayscale.setOnPreferenceChangeListener(this);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        final View view = LayoutInflater.from(getContext()).inflate(R.layout.kcal_layout, container, false);
+        ((ViewGroup) view).addView(super.onCreateView(inflater, container, savedInstanceState));
+        return view;
+    }
+
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getActivity());
+        viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setPageTransformer(true, new FadeOutTransformation());
+        DotsKcal = (LinearLayout) view.findViewById(R.id.dots);
+        dotscount = viewPagerAdapter.getCount();
+        dots = new ImageView[dotscount];
+
+        for(int i = 0; i < dotscount; i++){
+            dots[i] = new ImageView(getActivity());
+            dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.inactive_dot));
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(8, 0, 8, 0);
+            DotsKcal.addView(dots[i], params);
+        }
+
+        dots[0].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+            @Override
+            public void onPageSelected(int position) {
+                for(int i = 0; i< dotscount; i++){
+                    dots[i].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.inactive_dot));
+                }
+                dots[position].setImageDrawable(ContextCompat.getDrawable(getActivity().getApplicationContext(), R.drawable.active_dot));
+            }
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

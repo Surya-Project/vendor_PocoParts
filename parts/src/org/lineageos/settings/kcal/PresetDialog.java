@@ -1,4 +1,4 @@
-package com.xiaomi.parts.kcal;
+package org.lineageos.settings.kcal;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -7,13 +7,13 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import com.xiaomi.parts.R;
+import org.lineageos.settings.R;
 
 public class PresetDialog extends DialogFragment {
     private CharSequence[] mEntries;
     private CharSequence[] mEntryValues;
     private String mValue;
-    private KCalSettings mKCalSettingsFragment;
+    private KcalSettings mKcalSettingsFragment;
     private int mClickedDialogEntryIndex;
     private final DialogInterface.OnClickListener selectItemListener =
             new DialogInterface.OnClickListener() {
@@ -22,7 +22,7 @@ public class PresetDialog extends DialogFragment {
                 public void onClick(DialogInterface dialog, int which) {
                     if (mClickedDialogEntryIndex != which) {
                         mValue = mEntryValues[which].toString();
-                        mKCalSettingsFragment.applyValues(mValue);
+                        mKcalSettingsFragment.applyValues(mValue);
                         mClickedDialogEntryIndex = which;
                     }
                     dialog.dismiss();
@@ -60,8 +60,8 @@ public class PresetDialog extends DialogFragment {
         return -1;
     }
 
-    public void show(FragmentManager manager, String tag, KCalSettings mKCalSettingsFragment) {
+    public void show(FragmentManager manager, String tag, KcalSettings mKcalSettingsFragment) {
         super.show(manager, tag);
-        this.mKCalSettingsFragment = mKCalSettingsFragment;
+        this.mKcalSettingsFragment = mKcalSettingsFragment;
     }
 }

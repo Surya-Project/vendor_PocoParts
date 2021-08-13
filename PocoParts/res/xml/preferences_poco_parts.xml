@@ -78,7 +78,7 @@
       </PreferenceCategory>
 
         <PreferenceCategory
-            android:key="thermal_profiles"
+            android:key="thermal_settings"
             android:title="@string/thermal_category">
       
       <Preference

@@ -18,6 +18,7 @@
 
     <PreferenceCategory
         android:key="display"
+        android:layout="@layout/dot_preference_category"
         android:title="@string/display_title">
 
         <Preference
@@ -53,6 +54,7 @@
 
     <PreferenceCategory
         android:key="audio"
+        android:layout="@layout/dot_preference_category"
         android:title="@string/audio_category">
 
         <Preference
@@ -79,6 +81,7 @@
 
         <PreferenceCategory
             android:key="thermal_settings"
+            android:layout="@layout/dot_preference_category"
             android:title="@string/thermal_category">
       
       <Preference
@@ -95,6 +98,7 @@
 
     <PreferenceCategory
         android:key="usb"
+        android:layout="@layout/dot_preference_category"
         android:title="@string/usb_title">
 
         <SwitchPreference

@@ -26,4 +26,11 @@
     <!-- Display - High Touch -->
     <string name="htsr_enable_title">Aumente a capacidade de resposta ao toque</string>
     <string name="htsr_enable_summary">Aumenta a taxa de pesquisa de toque para diminuir a latência</string>
+    <string name="htsr_footer">Driver construído com base no nó sysfs palm_sensor pela Xiaomi. Os valores de modo foram escolhidos lendo o logcat da MIUI quando game_mode foi ativado.</string>
+
+    <!-- Haptic Level Settings -->
+    <string name="haptic_title">Haptic feedback</string>
+    <string name="haptic_level_title">Nível de força de vibração</string>
+    <string name="haptic_level_summary">Ajuste o nível de força do feedback tátil geralk</string>
+    <string name="haptic_level_summary_incompatible">Seu kernel não suporta o nível de força tátil QTI personalizado</string>
 </resources>

@@ -35,4 +35,8 @@
     <string name="thermal_title">Perfis Térmicos e Modo Game</string>
     <string name="thermal_summary">Ajuste um perfil termíco por aplicativo de acordo com sua necessidade</string>
 
+    <!-- USB 2.0 Force FastCharge -->
+    <string name="usb_title">USB</string> 
+    <string name="usb2_fc_title">USB 2.0 Fast Charge</string>
+    <string name="usb2_fc_summary">Força o carregamento rápido de até 900mA no modo USB 2.0</string>
 </resources>    

@@ -1,3 +1,9 @@
+on property:persist.lcd.hbm_mode=*
+    write /sys/devices/platform/soc/soc:qcom,dsi-display/hbm ${persist.lcd.hbm_mode}
+
+on property:persist.lcd.cabc_mode=*
+    write /sys/devices/platform/soc/soc:qcom,dsi-display/cabc ${persist.lcd.cabc_mode}
+
 on post-fs-data
 
 # Allow system to adjust haptic level directly

@@ -6,3 +6,7 @@ persist.audio.dirac.speaker=true \
 persist.dirac.acs.controller=qem \
 persist.dirac.acs.storeSettings=1 \
 persist.dirac.acs.ignore_error=1
+
+# CABC
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.lcd.cabc_mode=1

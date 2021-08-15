@@ -1,3 +1,6 @@
+# lcd
+type sysfs_lcd_feature, sysfs_type, fs_type;
+
 # Fast Charge
 type sysfs_fastcharge, fs_type, sysfs_type;
 

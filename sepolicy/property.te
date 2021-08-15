@@ -1,2 +1,5 @@
+# lcd
+type persist_lcd_prop, property_type, system_property_type;
+
 # Dirac
 type dirac_prop, property_type;

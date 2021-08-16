@@ -64,4 +64,10 @@
     <string name="usb_title">USB</string> 
     <string name="usb2_fc_title">USB 2.0 Fast Charge</string>
     <string name="usb2_fc_summary">Force fast charging of up to 900mA in USB 2.0 mode</string>
+
+    <!-- Haptic Level Settings -->
+    <string name="vibrator_category">Vibrator</string>
+    <string name="haptic_title">Haptic feedback</string>
+    <string name="haptic_level_title">Feedback strength level</string>
+    <string name="haptic_level_summary">Adjust the strength level of overall haptic feedback</string>
 </resources>

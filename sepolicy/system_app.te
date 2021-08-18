@@ -17,5 +17,8 @@ set_prop(system_app, persist_lcd_prop)
 allow system_app sysfs_thermal:file w_file_perms;
 allow system_app sysfs_thermal:file rw_file_perms;
 
+# Touch profiles
+allow system_app proc_nvt_feature:file rw_file_perms;
+
 # Touch Sampling
 allow system_app sysfs_htsr:file rw_file_perms;

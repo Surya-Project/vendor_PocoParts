@@ -9,3 +9,6 @@ type kcal_dev, sysfs_type, fs_type;
 
 # Touch Sampling
 type sysfs_htsr, sysfs_type, fs_type;
+
+# Touch profiles
+type proc_nvt_feature, proc_type, fs_type

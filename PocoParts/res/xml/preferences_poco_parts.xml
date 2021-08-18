@@ -16,9 +16,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory
+    <Preference
+        android:layout="@layout/xrage_header"
+        android:selectable="false"/>
+
+    <Preference
         android:key="display"
-        android:layout="@layout/dot_preference_category"
+        android:layout="@layout/xrage_preference_category"
+        android:selectable="false"
         android:title="@string/display_title">
 
         <Preference
@@ -50,11 +55,10 @@
                 android:targetPackage="org.lineageos.settings.doze" />
         </Preference>
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
+     <Preference
         android:key="audio"
-        android:layout="@layout/dot_preference_category"
+        android:layout="@layout/xrage_preference_category"
+        android:selectable="false"
         android:title="@string/audio_category">
 
         <Preference
@@ -77,11 +81,11 @@
                 android:targetClass="com.xiaomi.parts.speaker.ClearSpeakerActivity"
                 android:targetPackage="com.xiaomi.parts.speaker" />
         </Preference>
-      </PreferenceCategory>
 
-        <PreferenceCategory
+      <Preference
+            android:layout="@layout/xrage_preference_category"
+            android:selectable="false"
             android:key="thermal_settings"
-            android:layout="@layout/dot_preference_category"
             android:title="@string/thermal_category">
       
       <Preference
@@ -94,11 +98,11 @@
                 android:targetPackage="org.lineageos.settings"
                 android:targetClass="org.lineageos.settings.thermal.ThermalActivity" />
         </Preference>
-    </PreferenceCategory>
 
-    <PreferenceCategory
+    <Preference
+        android:layout="@layout/xrage_preference_category"
+        android:selectable="false"
         android:key="usb"
-        android:layout="@layout/dot_preference_category"
         android:title="@string/usb_title">
 
         <SwitchPreference
@@ -106,12 +110,11 @@
             android:icon="@drawable/ic_usb2_fc"
             android:summary="@string/usb2_fc_summary"
             android:title="@string/usb2_fc_title" />
-    </PreferenceCategory>
 
-    
-    <PreferenceCategory
+    <Preference
+        android:layout="@layout/xrage_preference_category"
+        android:selectable="false"
         android:key="vibrator"
-        android:layout="@layout/dot_preference_category"
         android:title="@string/vibrator_category">
 
     <Preference
@@ -124,6 +127,5 @@
                 android:targetClass="org.lineageos.settings.haptic.HapticLevelActivity"
                 android:targetPackage="org.lineageos.settings" />
         </Preference>
-     </PreferenceCategory>
 
 </PreferenceScreen>

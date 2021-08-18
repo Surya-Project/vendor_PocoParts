@@ -16,4 +16,14 @@
      <!-- Haptic Feedback Levels -->
      <integer name="haptic_level_default">80</integer>
      <integer name="haptic_level_max">100</integer>
+
+    <!-- Gaming Profiles -->
+    <integer name="touch_response_default">3</integer>
+    <integer name="touch_response_max">3</integer>
+
+    <integer name="touch_sensitivity_default">0</integer>
+    <integer name="touch_sensitivity_max">2</integer>
+
+    <integer name="touch_resistant_default">2</integer>
+    <integer name="touch_resistant_max">3</integer>
 </resources>

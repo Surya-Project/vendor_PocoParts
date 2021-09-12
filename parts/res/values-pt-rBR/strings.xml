@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Perfil termíco</string>
+    <string name="thermal_summary">Ajustae perfis térmicos e a sesbilidade do toque na tela por app</string>
+    <string name="thermal_default">Padrão</string>
+    <string name="thermal_benchmark">Benchmark</string>
+    <string name="thermal_browser">Internet</string>
+    <string name="thermal_camera">Câmera</string>
+    <string name="thermal_dialer">Chamadas</string>
+    <string name="thermal_gaming">Jogos</string>
+    <string name="thermal_streaming">Streaming</string>
+
+    <!-- Display - High Touch -->
+    <string name="htsr_enable_title">Aumente a capacidade de resposta ao toque</string>
+    <string name="htsr_enable_summary">Aumenta a taxa de pesquisa de toque para diminuir a latência</string>
+    <string name="htsr_footer">Driver construído com base no nó sysfs palm sensor pela Xiaomi. Os valores de modo foram escolhidos lendo o logcat da MIUI quando game mode foi ativado.</string>
+
+    <!-- Haptic Level Settings -->
+    <string name="haptic_title">Controlador de vibração</string>
+    <string name="haptic_level_title">Nível de força de vibração</string>
+    <string name="haptic_level_summary">Ajuste o nível de força do feedback tátil geral</string>
+    <string name="haptic_level_summary_incompatible">Seu kernel não suporta o nível de força tátil QTI personalizado</string>
+
+    <!-- LCD Features -->
+    <string name="lcd_features_title">LCD features</string>
+    <string name="lcd_features_summary">Modo de Alto Brilho, CABC</string>
+    <string name="lcd_hbm_title">Modo de Alto brilho (HBM)</string>
+    <string name="lcd_hbm_tile_title">HBM</string>
+    <string name="lcd_cabc_title">Modo de Controle de luz de fundo adaptável de conteúdo (CABC)</string>
+    <string name="lcd_features_info">Modo de alto brilho aumenta o brilho máximo da tela para melhorar a visibilidade sob a luz solar, aumenta o consumo de energia. Controle de luz de fundo adaptável de conteúdo ajusta o brilho da tela e da luz de fundo com base no conteúdo mostrado atualmente, para reduzir o consumo de energia sem degradação.</string>
+    
+    <!-- Refresh Rate tile -->
+    <string name="refresh_rate_tile_title">Taxa de atualização</string>
+    <string name="refresh_rate_title">Taxa de atualização dinâmica</string>
+    <string name="refresh_rate_summary">Altere a taxa de atualização da tela do seu dispositivo para uma melhor experiência</string>
+    <string name="enable_high_refresh_rate_title">Alta taxa de atualização</string>
+    <string name="enable_high_refresh_rate_summary">Ative a alta taxa de atualização para uma experiência mais suave</string>
+    <string name="current_refresh_rate_info">Taxa de atualização máxima / mínima: <xliff:g id="version">%1$s</xliff:g>Hz - <xliff:g id="version">%2$s</xliff:g>Hz</string>
+
+    <!-- Raise to wake strings-->
+    <string name="raise_to_wake_gesture_title">Levante para acordar</string>
+    <string name="raise_to_wake_gesture_summary">Ative o dispositivo em vez de pulsar a notificação</string>
+
+
+</resources>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+<!-- Parts - Homepage -->
+    <string name="advanced_settings">Poco Parts</string>
+    <string name="advanced_settings_summary">Personalizações específicas do dispositivo</string>
+    <!-- Audio and Vibration-->
+    <string name="audio_category">Audio e Vibração</string>
+    <!-- Display and Touch -->
+    <string name="display_title">Display e Touch</string>
+
+    <!-- Display - Kcal -->
+    <string name="device_kcal_title">Calibração de cores da tela</string>
+    <string name="kcal_enabled_summary">Calibrar a exibição usando KCAL</string>
+    <string name="advanced_settings_kcal">Calibração de cores da tela</string>
+    <string name="cat_colormanagement">Configurações de cor</string>
+    <string name="cat_calibration">Calibração do display</string>
+    <string name="kcal_enabled">Ligado</string>
+    <string name="kcal_disabled">Desligado</string>
+    <string name="set_on_boot">Definido na inicialização</string>
+    <string name="color_red">Vermelho</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Azul</string>
+    <string name="color_minimum">Minimo</string>
+    <string name="saturation">Saturação</string>
+    <string name="value">Valor</string>
+    <string name="contrast">Contraste</string>
+    <string name="hue">Matiz</string>
+    <string name="grayscale">Tela em tons de cinza</string>
+    <string name="presets_dialog_title">Selecione uma predefinição</string>
+
+    <!-- Display - FPS Info -->
+    <string name="fps_info_title">FPS Info Overlay</string>
+    <string name="fps_info_summary">Mostrar FPS atualizado por segundo</string>
+    
+    <!-- Audio - Clear Speaker -->
+    <string name="clear_speaker_title">Limpar alto-falante</string>
+    <string name="clear_speaker_summary">Reproduza um áudio de 30 segundos para limpar o alto-falante</string>
+    <string name="clear_speaker_description">Execute este recurso uma ou duas vezes se descobrir que o alto-falante está ligeiramente bloqueado por poeira. Defina o volume da mídia para o máximo. Se o alto-falto-falante estiver fortemente bloqueado, execute este recurso 2 a 5 vezes enquanto agita seu dispositivo com o alto-falante voltado para baixo. AVISO: Certifique-se de que todos os fones de ouvido estejam desconectados.</string>
+
+    <!-- Haptic Level Settings -->
+    <string name="haptic_level_title">Nível de força de vibração</string>
+    <string name="haptic_level_summary">Ajuste o nível de força do feedback tátil geral</string>
+
+    <!-- LCD Features -->
+    <string name="lcd_features_title">LCD features</string>
+    <string name="lcd_features_summary">Modo de Alto Brilho, CABC</string>
+
+    <!-- Refresh Rate -->
+    <string name="enable_high_refresh_rate_title">Alta taxa de atualização</string>
+    <string name="enable_high_refresh_rate_summary">Ative a alta taxa de atualização para uma experiência mais suave</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Perfil termíco</string>
+    <string name="thermal_summary">Ajustae perfis térmicos e a sesbilidade do toque na tela por app</string>
+
+    <!-- Touch Sampling -->
+    <string name="htsr_enable_title">Aumente a capacidade de resposta ao toque</string>
+    <string name="htsr_enable_summary">Aumenta a taxa de pesquisa de toque para diminuir a latência</string>
+
+    <!-- Dirac settings -->
+    <string name="dirac_title">Mi Sound Enhancer</string>
+    <string name="dirac_summary">Otimize a qualidade do áudio</string>
+    <string name="dirac_headset_title">Escolha o tipo de fone de ouvido</string>
+    <string name="dirac_preset_title">Escolha uma predefinição</string>
+
+</resources>
